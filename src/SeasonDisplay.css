@@ -32,3 +32,12 @@
 .summer {
     background-color: orange;
 }
+
+.error-message {
+    display: flex;
+    justify-content: center;
+    /* padding-top: 50px; */
+    align-items: center;
+    font-size: 1.2em;
+    height: 100vh;
+}

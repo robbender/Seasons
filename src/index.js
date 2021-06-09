@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import SeasonDisplay from './SeasonsDisplay';
 import "semantic-ui-css/semantic.min.css";
 import Spinner from './Spinner';
+import './SeasonDisplay.css';
 class App extends React.Component {
   state = { lat: null, errorMessage: '' };
 
@@ -17,15 +18,15 @@ class App extends React.Component {
 
   render() {
     if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error: {this.state.errorMessage}</div>;
+      return <div className="error-message">Error: {this.state.errorMessage}
+      <br/> 
+      <br/>Please set default location or allow browser to detect your location.</div>;
     }
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={ this.state.lat } />;
     }
     return (
-      <div className>
-        <h3>Working...</h3>
-      </div>
+      <Spinner />
     );
   }
 }
